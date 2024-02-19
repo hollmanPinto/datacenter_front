@@ -1,0 +1,36 @@
+<div>
+    <h4 style="text-align: center;">Módulo de Recargas</h4>
+    <form class="example-form" [formGroup]="recargaForm">
+        <mat-form-field class="input">
+          <mat-label>Valor Recarga</mat-label>
+          <input matInput value="1000" formControlName="recarga" type="number">
+        </mat-form-field>
+      
+        <mat-form-field class="input">
+          <mat-label>Teléfono</mat-label>
+          <input matInput value="" formControlName="telefono" type="number">
+        </mat-form-field>
+
+        <mat-form-field class="input">
+            <mat-label>Seleccione un operador</mat-label>
+            <mat-select formControlName="operador">
+                <mat-option value="1">Claro</mat-option>
+                <mat-option value="2">Movistar</mat-option>
+                <mat-option value="3">Tigo</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="input">
+            <mat-label>Seleccione un usuario</mat-label>
+            <mat-select formControlName="usuario">
+                <mat-option *ngFor="let user of listaUsuarios" [value]="user.id">
+                    {{ user.username }}
+                </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        <div style="text-align: center;margin-bottom: 2%;">
+            <button mat-raised-button color="primary" (click)="enviarRecarga()">Enviar Recarga</button>
+        </div>
+      </form>
+</div>
